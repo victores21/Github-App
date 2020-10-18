@@ -5,7 +5,16 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+.search-another-profile {
+  text-align: center;
+  margin-top: 2rem;
+}
+.add-another-profile-button {
+  font-size: 20px;
+  background: #1a1e22;
+  color: #fff;
+  padding: 1rem 3rem;
+}
 .hero-home {
   min-height: 100vh;
   min-width: 100%;
@@ -44,6 +53,12 @@
 }
 
 .hero-home #hero-username {
+  font-size: 20px;
+  color: #0466d7;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+.hero-home #hero-username a {
   font-size: 20px;
   color: #0466d7;
   font-weight: 400;
