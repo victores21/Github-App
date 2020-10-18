@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
-import Home from "../Home/Home";
+import { Redirect } from "react-router-dom";
 //React Hooks Form Validator
 import { useForm } from "react-hook-form";
 
@@ -50,12 +49,15 @@ const Login = () => {
     document.cookie = `birthDate= ${birthDate}`;
   };
 
+  //React Form Hook
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     setIsFormValidated(true);
     console.log("yei");
   };
+
+  //If the form is correct, redirect and Add the cookies
   if (isFormValidated) {
     addCookies();
     return <Redirect to="/home" />;
@@ -72,6 +74,7 @@ const Login = () => {
       </p>
     );
   };
+
   return (
     <>
       <div className="hero-login">
