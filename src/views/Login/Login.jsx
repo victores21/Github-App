@@ -63,12 +63,14 @@ const Login = () => {
             >
               <div className="form-content">
                 <input
+                  required="required"
                   className="form-content-input"
                   type="text"
                   placeholder="Usuario de Github"
                   name="username"
                 />
                 <input
+                  required="required"
                   className="form-content-input"
                   type="email"
                   placeholder="Correo Electrónico"
@@ -76,6 +78,7 @@ const Login = () => {
                 />
                 <div className="shared-container-input">
                   <input
+                    required="required"
                     className="form-content-input"
                     type="text"
                     id="primer-nombre"
@@ -83,6 +86,7 @@ const Login = () => {
                     name="firstName"
                   />
                   <input
+                    required="required"
                     className="form-content-input"
                     type="text"
                     id="segundo-nombre"
@@ -93,12 +97,14 @@ const Login = () => {
 
                 <div className="shared-container-input">
                   <input
+                    required="required"
                     className="form-content-input"
                     type="text"
                     placeholder="Primer Apellido"
                     name="lastName"
                   />
                   <input
+                    required="required"
                     className="form-content-input"
                     type="text"
                     placeholder="Segundo Apellido"
@@ -106,6 +112,7 @@ const Login = () => {
                   />
                 </div>
                 <input
+                  required="required"
                   className="form-content-input"
                   type="number"
                   placeholder="Cedula"
@@ -113,6 +120,7 @@ const Login = () => {
                 />
                 <label id="fecha-nacimiento-label">Fecha de Nacimiento</label>
                 <input
+                  required="required"
                   className="form-content-input"
                   type="date"
                   id="fecha-nacimiento"
@@ -123,6 +131,7 @@ const Login = () => {
               <div className="submit-button-container">
                 <Link to="/home">
                   <input
+                    required="required"
                     className="btn btn-transparent btn-white-outline color-white btn-entrar"
                     type="submit"
                     value="Entrar"
