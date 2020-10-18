@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import DataTable from "../../components/DataTable/DataTable";
 //Components
 import Navbar from "../../components/Navbar/Navbar";
 
@@ -29,7 +29,9 @@ const Home = () => {
     followers: "",
     following: "",
   });
+  const [userRepos, setUserRepos] = useState("");
   const [loading, setLoading] = useState(true);
+  const [userRepoLoading, setUserRepoLoading] = useState(true);
 
   useEffect(() => {
     const getUserInfo = async (username) => {
@@ -59,8 +61,25 @@ const Home = () => {
         console.log(error);
       }
     };
+    const getUserRepos = async (username) => {
+      const req = await fetch(
+        `https://api.github.com/users/${username}/repos`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `token eb9f311ef9640e1caabbabb061f19c8be818ef14`,
+          },
+        }
+      );
+      const data = await req.json();
+      setUserRepos(await data);
+      // console.log(await data);
+      setUserRepoLoading(false);
+    };
+
     if (cookieInfo.username.length > 0) {
       getUserInfo(cookieInfo.username);
+      getUserRepos(cookieInfo.username);
     }
 
     console.log("CookieInfo", cookieInfo.username);
@@ -177,18 +196,14 @@ const Home = () => {
             {/* <!-- Bottom content container --> */}
             <div className="hero-bottom-container">
               <div className="hero-bottom-content-container">
-                <h2 id="hero-bottom-title">Repositorios</h2>
+                {/* <h2 id="hero-bottom-title">Repositorios</h2> */}
 
-                <div className="hero-bottom-search-container">
-                  <input
-                    type="text"
-                    name=""
-                    id="hero-bottom-search"
-                    placeholder="Buscar Repositorio"
-                  />
-                </div>
                 <div className="hero-bottom-table">
                   {/* <!-- Here goes the table with re repositories --> */}
+                  <DataTable
+                    userRepos={userRepos}
+                    userRepoLoading={userRepoLoading}
+                  />
                 </div>
               </div>
             </div>
