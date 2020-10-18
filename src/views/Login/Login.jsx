@@ -64,7 +64,8 @@ const Login = () => {
     return (
       <p
         style={{
-          color: "#fff",
+          color: "rgb(255 93 93)",
+          fontSize: "12px",
         }}
       >
         {message}
@@ -95,6 +96,7 @@ const Login = () => {
                   name="username"
                   ref={register({ required: true, minLength: 1 })}
                 />
+                {errors.username && errorMessage("Ingrese un usuario válido")}
                 <input
                   className="form-content-input"
                   type="email"
@@ -102,49 +104,72 @@ const Login = () => {
                   name="email"
                   ref={register({ required: true })}
                 />
-                <div className="shared-container-input">
-                  <input
-                    className="form-content-input"
-                    type="text"
-                    id="primer-nombre"
-                    placeholder="Primer Nombre"
-                    name="firstName"
-                    ref={register({ required: true, minLength: 1 })}
-                  />
 
-                  <input
-                    className="form-content-input"
-                    type="text"
-                    id="segundo-nombre"
-                    placeholder="Segundo Nombre"
-                    name="secondName"
-                    ref={register({ required: true, minLength: 1 })}
-                  />
+                {errors.email && (
+                  <span role="alert">{errors.email.message}</span>
+                )}
+                <div className="shared-container-input">
+                  <div className="first-name">
+                    <input
+                      className="form-content-input"
+                      type="text"
+                      id="primer-nombre"
+                      placeholder="Primer Nombre"
+                      name="firstName"
+                      ref={register({ required: true, minLength: 1 })}
+                    />
+                    {errors.firstName &&
+                      errorMessage("Ingrese un nombre válido")}
+                  </div>
+                  <div className="second-name">
+                    <input
+                      className="form-content-input"
+                      type="text"
+                      id="segundo-nombre"
+                      placeholder="Segundo Nombre"
+                      name="secondName"
+                      ref={register({ required: true, minLength: 1 })}
+                    />
+                    {errors.secondName &&
+                      errorMessage("Ingrese un Segundo nombre válido")}
+                  </div>
                 </div>
-
                 <div className="shared-container-input">
-                  <input
-                    className="form-content-input"
-                    type="text"
-                    placeholder="Primer Apellido"
-                    name="lastName"
-                    ref={register({ required: true, minLength: 1 })}
-                  />
-                  <input
-                    className="form-content-input"
-                    type="text"
-                    placeholder="Segundo Apellido"
-                    name="secondLastName"
-                    ref={register({ required: true, minLength: 1 })}
-                  />
+                  <div className="last-name">
+                    <input
+                      className="form-content-input"
+                      type="text"
+                      placeholder="Primer Apellido"
+                      name="lastName"
+                      ref={register({ required: true, minLength: 1 })}
+                    />
+                    {errors.lastName &&
+                      errorMessage("Ingrese un primer apellido válido")}
+                  </div>
+                  <div className="second-last-name">
+                    <input
+                      className="form-content-input"
+                      type="text"
+                      placeholder="Segundo Apellido"
+                      name="secondLastName"
+                      ref={register({ required: true, minLength: 1 })}
+                    />
+                    {errors.secondLastName &&
+                      errorMessage("Ingrese un segundo apellido válido")}
+                  </div>
                 </div>
                 <input
                   className="form-content-input"
                   type="number"
                   placeholder="Cedula"
                   name="ci"
-                  ref={register({ required: true, minLength: 1 })}
+                  ref={register({
+                    required: true,
+                    minLength: 1,
+                    maxLength: 10,
+                  })}
                 />
+                {errors.ci && errorMessage("Ingrese un cedula válida")}
                 <label id="fecha-nacimiento-label">Fecha de Nacimiento</label>
                 <input
                   className="form-content-input"
@@ -152,8 +177,13 @@ const Login = () => {
                   id="fecha-nacimiento"
                   placeholder="Fecha de Nacimiento"
                   name="birthDate"
-                  ref={register({ required: true, minLength: 1 })}
+                  ref={register({
+                    required: true,
+                    minLength: 9,
+                    maxLength: 10,
+                  })}
                 />
+                {errors.birthDate && errorMessage("Ingrese una fecha válida")}
               </div>
               <div className="submit-button-container">
                 <input
