@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { JumpCircleLoading } from "react-loadingg";
 
-import { getUser } from "../../api.js";
+import { getUser, getUserRepos } from "../../api.js";
 //Styles
 import "./Home.css";
 
@@ -39,22 +39,6 @@ const Home = () => {
   const [userRepoLoading, setUserRepoLoading] = useState(true);
 
   useEffect(() => {
-    const getUserRepos = async (username) => {
-      const req = await fetch(
-        `https://api.github.com/users/${username}/repos`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `token eb9f311ef9640e1caabbabb061f19c8be818ef14`,
-          },
-        }
-      );
-      const data = await req.json();
-      setUserRepos(await data);
-      // console.log(await data);
-      setUserRepoLoading(false);
-    };
-
     if (cookieInfo.username.length > 0) {
       getUser(cookieInfo.username).then((data) => {
         setUserInfo({
@@ -72,7 +56,14 @@ const Home = () => {
         setLoading(false);
       });
 
-      getUserRepos(cookieInfo.username);
+      getUserRepos(cookieInfo.username)
+        .then((data) => {
+          setUserRepos(data);
+          setUserRepoLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
 
     console.log("CookieInfo", cookieInfo.username);
