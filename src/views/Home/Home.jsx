@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 //Components
 import Navbar from "../../components/Navbar/Navbar";
@@ -7,20 +7,54 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Home.css";
 
 const Home = () => {
-  // UseEffect
-  useEffect(() => {
-    const getData = async () => {
-      const req = await fetch("https://api.github.com/users/victores21");
-      const data = await req.json();
-      console.log(await data);
-    };
-
-    getData();
+  const [userInfo, setUserInfo] = useState({
+    username: "",
+    email: "",
+    firstName: "",
+    secondName: "",
+    lastName: "",
+    secondLastName: "",
+    ci: "",
+    birthDate: "",
   });
+
+  useEffect(() => {
+    // const getData = async () => {
+    //   const req = await fetch("https://api.github.com/users/victores21");
+    //   const data = await req.json();
+    //   console.log(await data);
+    // };
+
+    // getData();
+    const getCookie = () => {
+      let cookies = document.cookie
+        .split(";")
+        .map((cookie) => cookie.split("="))
+        .reduce(
+          (accumulator, [key, value]) => ({
+            ...accumulator,
+            [key.trim()]: decodeURIComponent(value),
+          }),
+          {}
+        );
+
+      setUserInfo({
+        username: cookies.username,
+        email: cookies.email,
+        firstName: cookies.firstName,
+        secondName: cookies.secondName,
+        lastName: cookies.lastName,
+        secondLastName: cookies.secondLastName,
+        ci: cookies.ci,
+        birthDate: cookies.birthDate,
+      });
+    };
+    getCookie();
+  }, []);
 
   return (
     <>
-      <Navbar />
+      <Navbar userInfoFromCookies={userInfo} />
 
       <div className="hero-home">
         <div className="hero-content-container">
@@ -33,7 +67,7 @@ const Home = () => {
 
               <div className="hero-user-content-container">
                 <h1 id="hero-name">Victor Escalona</h1>
-                <h2 id="hero-username">@victores21</h2>
+                <h2 id="hero-username">@{userInfo.username}</h2>
 
                 <div className="hero-personal-information">
                   <p className="personal-info work-place">
