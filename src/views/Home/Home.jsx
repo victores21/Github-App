@@ -112,6 +112,15 @@ const Home = () => {
 
     getCookie();
   }, []);
+
+  const isDataUndefined = (data) => {
+    if (data === undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  console.log(userInfo.name);
   if (loading) {
     return <p>Loading...</p>;
   } else {
@@ -127,17 +136,25 @@ const Home = () => {
                 <div className="hero-image-container">
                   <img
                     className="hero-image"
-                    src={userInfo.avatar_url}
+                    src={
+                      isDataUndefined(userInfo.avatar_url)
+                        ? "/images/github-logo.png"
+                        : userInfo.avatar_url
+                    }
                     alt=""
                   />
                 </div>
 
                 <div className="hero-user-content-container">
-                  <h1 id="hero-name">{userInfo.name}</h1>
+                  <h1 id="hero-name">
+                    {isDataUndefined(userInfo.name)
+                      ? "Not Found"
+                      : userInfo.name}
+                  </h1>
                   <h2 id="hero-username">@{userInfo.username}</h2>
 
                   <div className="hero-personal-information">
-                    {userInfo.company === null ? (
+                    {userInfo.company === null || undefined ? (
                       ""
                     ) : (
                       <p className="personal-info work-place">
@@ -145,7 +162,7 @@ const Home = () => {
                       </p>
                     )}
 
-                    {userInfo.location === null ? (
+                    {userInfo.location === null || undefined ? (
                       ""
                     ) : (
                       <p className="personal-info place-living">
@@ -153,7 +170,7 @@ const Home = () => {
                         {userInfo.location}
                       </p>
                     )}
-                    {userInfo.created_at === null ? (
+                    {userInfo.created_at === null || undefined ? (
                       ""
                     ) : (
                       <p className="personal-info github-created">
@@ -166,7 +183,9 @@ const Home = () => {
                   <div className="hero-information-cards">
                     <div className="hero-information-card">
                       <h3 className="hero-information-card-number">
-                        {userInfo.public_repos}
+                        {isDataUndefined(userInfo.public_repos)
+                          ? "Not Found"
+                          : userInfo.public_repos}
                       </h3>
                       <h4 className="hero-information-card-category">
                         Repositorios
@@ -174,7 +193,9 @@ const Home = () => {
                     </div>
                     <div className="hero-information-card">
                       <h3 className="hero-information-card-number">
-                        {userInfo.followers}
+                        {isDataUndefined(userInfo.followers)
+                          ? "Not Found"
+                          : userInfo.followers}
                       </h3>
                       <h4 className="hero-information-card-category">
                         Seguidores
@@ -182,7 +203,9 @@ const Home = () => {
                     </div>
                     <div className="hero-information-card">
                       <h3 className="hero-information-card-number">
-                        {userInfo.following}
+                        {isDataUndefined(userInfo.following)
+                          ? "Not Found"
+                          : userInfo.following}
                       </h3>
                       <h4 className="hero-information-card-category">
                         Siguiendo
@@ -200,10 +223,18 @@ const Home = () => {
 
                 <div className="hero-bottom-table">
                   {/* <!-- Here goes the table with re repositories --> */}
-                  <DataTable
+                  {isDataUndefined(userInfo.name) ? (
+                    <h2 id="hero-bottom-title">Not Found</h2>
+                  ) : (
+                    <DataTable
+                      userRepos={userRepos}
+                      userRepoLoading={userRepoLoading}
+                    />
+                  )}
+                  {/* <DataTable
                     userRepos={userRepos}
                     userRepoLoading={userRepoLoading}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
