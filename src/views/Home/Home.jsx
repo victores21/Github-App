@@ -225,6 +225,11 @@ const Home = () => {
               </div>
             </div>
 
+            <div className="search-another-profile">
+              <Link to="/" className="add-another-profile-button">
+                Busca otro perfil!
+              </Link>
+            </div>
             {/* <!-- Bottom content container --> */}
             <div className="hero-bottom-container">
               <div className="hero-bottom-content-container">
