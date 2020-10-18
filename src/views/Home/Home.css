@@ -113,7 +113,7 @@
 }
 
 @media (min-width: 425px) {
-  .hero-top-container {
+  .hero-home .hero-top-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -124,10 +124,10 @@
     -ms-flex-align: center;
     align-items: center;
   }
-  .hero-top-content-container {
+  .hero-home .hero-top-content-container {
     max-width: 375px;
   }
-  .hero-bottom-container {
+  .hero-home .hero-bottom-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -138,18 +138,18 @@
     -ms-flex-align: center;
     align-items: center;
   }
-  .hero-bottom-content-container {
+  .hero-home .hero-bottom-content-container {
     max-width: 1024px;
     width: 100%;
   }
 }
 
 @media (min-width: 768px) {
-  .hero-top-content-container {
+  .hero-home .hero-top-content-container {
     max-width: 1023px;
     width: 100%;
   }
-  .hero-personal-information {
+  .hero-home .hero-personal-information {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -163,7 +163,7 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  .hero-information-cards {
+  .hero-home .hero-information-cards {
     -ms-grid-columns: 150px 150px 150px;
     grid-template-columns: 150px 150px 150px;
     margin-top: 1rem;
@@ -174,13 +174,16 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
-  .personal-info {
+  .hero-home .personal-info {
     margin: 1rem 1rem;
   }
-  .hero-information-cards .hero-information-card {
+  .hero-home .hero-information-cards .hero-information-card {
     font-size: 16px;
   }
-  .hero-information-cards .hero-information-card .hero-information-card-number {
+  .hero-home
+    .hero-information-cards
+    .hero-information-card
+    .hero-information-card-number {
     font-size: 16px;
   }
 }
