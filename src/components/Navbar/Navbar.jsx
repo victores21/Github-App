@@ -6,13 +6,13 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <>
-      <header class="header">
-        <div class="header-content-container">
-          <input class="menu-btn" type="checkbox" id="menu-btn" />
-          <label class="menu-icon" for="menu-btn">
-            <span class="navicon"></span>
+      <header className="header">
+        <div className="header-content-container">
+          <input className="menu-btn" type="checkbox" id="menu-btn" />
+          <label className="menu-icon" for="menu-btn">
+            <span className="navicon"></span>
           </label>
-          <ul class="menu">
+          <ul className="menu">
             <li>Bienvenido</li>
             <li>Victor David Escalona Gonzalez</li>
             <li>Usuario: @Victores21</li>
