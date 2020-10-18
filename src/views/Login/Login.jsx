@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import Home from "../Home/Home";
+//React Hooks Form Validator
+import { useForm } from "react-hook-form";
 
 //Styles
 import "./Login.css";
@@ -15,6 +18,8 @@ const Login = () => {
     ci: "",
     birthDate: "",
   });
+
+  const [isFormValidated, setIsFormValidated] = useState(false);
 
   const handleEmailChange = (e) => {
     setFormValue({
@@ -45,6 +50,27 @@ const Login = () => {
     document.cookie = `birthDate= ${birthDate}`;
   };
 
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data) => {
+    setIsFormValidated(true);
+    console.log("yei");
+  };
+  if (isFormValidated) {
+    addCookies();
+    return <Redirect to="/home" />;
+  }
+  const errorMessage = (message) => {
+    return (
+      <p
+        style={{
+          color: "#fff",
+        }}
+      >
+        {message}
+      </p>
+    );
+  };
   return (
     <>
       <div className="hero-login">
@@ -55,89 +81,87 @@ const Login = () => {
 
           <div className="hero-form">
             <h1 id="hero-form-title">Encuentra tu perfil de Github</h1>
-
             <form
               className="form-container"
               action="#"
               onChange={(e) => handleEmailChange(e)}
+              onSubmit={handleSubmit(onSubmit)}
             >
               <div className="form-content">
                 <input
-                  required="required"
                   className="form-content-input"
                   type="text"
                   placeholder="Usuario de Github"
                   name="username"
+                  ref={register({ required: true, minLength: 1 })}
                 />
                 <input
-                  required="required"
                   className="form-content-input"
                   type="email"
                   placeholder="Correo Electrónico"
                   name="email"
+                  ref={register({ required: true })}
                 />
                 <div className="shared-container-input">
                   <input
-                    required="required"
                     className="form-content-input"
                     type="text"
                     id="primer-nombre"
                     placeholder="Primer Nombre"
                     name="firstName"
+                    ref={register({ required: true, minLength: 1 })}
                   />
+
                   <input
-                    required="required"
                     className="form-content-input"
                     type="text"
                     id="segundo-nombre"
                     placeholder="Segundo Nombre"
                     name="secondName"
+                    ref={register({ required: true, minLength: 1 })}
                   />
                 </div>
 
                 <div className="shared-container-input">
                   <input
-                    required="required"
                     className="form-content-input"
                     type="text"
                     placeholder="Primer Apellido"
                     name="lastName"
+                    ref={register({ required: true, minLength: 1 })}
                   />
                   <input
-                    required="required"
                     className="form-content-input"
                     type="text"
                     placeholder="Segundo Apellido"
                     name="secondLastName"
+                    ref={register({ required: true, minLength: 1 })}
                   />
                 </div>
                 <input
-                  required="required"
                   className="form-content-input"
                   type="number"
                   placeholder="Cedula"
                   name="ci"
+                  ref={register({ required: true, minLength: 1 })}
                 />
                 <label id="fecha-nacimiento-label">Fecha de Nacimiento</label>
                 <input
-                  required="required"
                   className="form-content-input"
                   type="date"
                   id="fecha-nacimiento"
                   placeholder="Fecha de Nacimiento"
                   name="birthDate"
+                  ref={register({ required: true, minLength: 1 })}
                 />
               </div>
               <div className="submit-button-container">
-                <Link to="/home">
-                  <input
-                    required="required"
-                    className="btn btn-transparent btn-white-outline color-white btn-entrar"
-                    type="submit"
-                    value="Entrar"
-                    onClick={() => addCookies()}
-                  />
-                </Link>
+                <input
+                  className="btn btn-transparent btn-white-outline color-white btn-entrar"
+                  type="submit"
+                  value="Buscar"
+                  // onClick={() => addCookies()}
+                />
               </div>
             </form>
           </div>
