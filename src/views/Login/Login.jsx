@@ -6,56 +6,56 @@ import "./Login.css";
 const Login = () => {
   return (
     <>
-      <div class="hero-login">
-        <div class="hero-content">
-          <div class="hero-image-container">
-            <img class="hero-image" src="/images/github-logo.png" alt="" />
+      <div className="hero-login">
+        <div className="hero-content">
+          <div className="hero-image-container">
+            <img className="hero-image" src="/images/github-logo.png" alt="" />
           </div>
 
-          <div class="hero-form">
+          <div className="hero-form">
             <h1 id="hero-form-title">Encuentra tu perfil de Github</h1>
 
-            <form class="form-container" action="#">
-              <div class="form-content">
+            <form className="form-container" action="#">
+              <div className="form-content">
                 <input
-                  class="form-content-input"
+                  className="form-content-input"
                   type="text"
                   placeholder="Usuario de Github"
                 />
                 <input
-                  class="form-content-input"
+                  className="form-content-input"
                   type="email"
                   placeholder="Correo Electrónico"
                 />
-                <div class="shared-container-input">
+                <div className="shared-container-input">
                   <input
-                    class="form-content-input"
+                    className="form-content-input"
                     type="text"
                     id="primer-nombre"
                     placeholder="Primer Nombre"
                   />
                   <input
-                    class="form-content-input"
+                    className="form-content-input"
                     type="text"
                     id="segundo-nombre"
                     placeholder="Segundo Nombre"
                   />
                 </div>
 
-                <div class="shared-container-input">
+                <div className="shared-container-input">
                   <input
-                    class="form-content-input"
+                    className="form-content-input"
                     type="text"
                     placeholder="Primer Apellido"
                   />
                   <input
-                    class="form-content-input"
+                    className="form-content-input"
                     type="text"
                     placeholder="Segundo Apellido"
                   />
                 </div>
                 <input
-                  class="form-content-input"
+                  className="form-content-input"
                   type="number"
                   placeholder="Cedula"
                 />
@@ -63,15 +63,15 @@ const Login = () => {
                   Fecha de Nacimiento
                 </label>
                 <input
-                  class="form-content-input"
+                  className="form-content-input"
                   type="date"
                   id="fecha-nacimiento"
                   placeholder="Fecha de Nacimiento"
                 />
               </div>
-              <div class="submit-button-container">
+              <div className="submit-button-container">
                 <input
-                  class="btn btn-transparent btn-white-outline color-white btn-entrar"
+                  className="btn btn-transparent btn-white-outline color-white btn-entrar"
                   type="submit"
                   value="Entrar"
                 />
