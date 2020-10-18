@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 //Components
 import Navbar from "../../components/Navbar/Navbar";
@@ -7,48 +7,66 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Home.css";
 
 const Home = () => {
+  // UseEffect
+  useEffect(() => {
+    const getData = async () => {
+      const req = await fetch("https://api.github.com/users/victores21");
+      const data = await req.json();
+      console.log(await data);
+    };
+
+    getData();
+  });
+
   return (
     <>
       <Navbar />
 
-      <div class="hero-home">
-        <div class="hero-content-container">
+      <div className="hero-home">
+        <div className="hero-content-container">
           {/* <!-- Top content container --> */}
-          <div class="hero-top-container">
-            <div class="hero-top-content-container">
-              <div class="hero-image-container">
-                <img class="hero-image" src="/images/perfil.png" alt="" />
+          <div className="hero-top-container">
+            <div className="hero-top-content-container">
+              <div className="hero-image-container">
+                <img className="hero-image" src="/images/perfil.png" alt="" />
               </div>
 
-              <div class="hero-user-content-container">
+              <div className="hero-user-content-container">
                 <h1 id="hero-name">Victor Escalona</h1>
                 <h2 id="hero-username">@victores21</h2>
 
-                <div class="hero-personal-information">
-                  <p class="personal-info work-place">
-                    <i class="fas fa-briefcase"></i> Ra Marketing Consulting
+                <div className="hero-personal-information">
+                  <p className="personal-info work-place">
+                    <i className="fas fa-briefcase"></i> Ra Marketing Consulting
                   </p>
-                  <p class="personal-info place-living">
-                    <i class="fas fa-map-marker-alt"></i> Bucaramanga, Colombia
+                  <p className="personal-info place-living">
+                    <i className="fas fa-map-marker-alt"></i> Bucaramanga,
+                    Colombia
                   </p>
-                  <p class="personal-info github-created">
-                    <i class="far fa-calendar"></i> Joined in, February, 13,
+                  <p className="personal-info github-created">
+                    <i className="far fa-calendar"></i> Joined in, February, 13,
                     2018
                   </p>
                 </div>
 
-                <div class="hero-information-cards">
-                  <div class="hero-information-card">
-                    <h3 class="hero-information-card-number">18</h3>
-                    <h4 class="hero-information-card-category">Repositorios</h4>
+                <div className="hero-information-cards">
+                  <div className="hero-information-card">
+                    <h3 className="hero-information-card-number">18</h3>
+                    <h4 className="hero-information-card-category">
+                      Repositorios
+                    </h4>
                   </div>
-                  <div class="hero-information-card">
-                    <h3 class="hero-information-card-number">4</h3>
-                    <h4 class="hero-information-card-category">Seguidores</h4>
+                  <div className="hero-information-card">
+                    <h3 className="hero-information-card-number">4</h3>
+                    <h4 className="hero-information-card-category">
+                      Seguidores
+                    </h4>
                   </div>
-                  <div class="hero-information-card">
-                    <h3 class="hero-information-card-number">4</h3>
-                    <h4 class="hero-information-card-category">Siguiendo</h4>
+                  <div className="hero-information-card">
+                    <h3 className="hero-information-card-number">4</h3>
+                    <h4 className="hero-information-card-category">
+                      Siguiendo
+                    </h4>
                   </div>
                 </div>
               </div>
@@ -56,11 +74,11 @@ const Home = () => {
           </div>
 
           {/* <!-- Bottom content container --> */}
-          <div class="hero-bottom-container">
-            <div class="hero-bottom-content-container">
+          <div className="hero-bottom-container">
+            <div className="hero-bottom-content-container">
               <h2 id="hero-bottom-title">Repositorios</h2>
 
-              <div class="hero-bottom-search-container">
+              <div className="hero-bottom-search-container">
                 <input
                   type="text"
                   name=""
@@ -68,7 +86,7 @@ const Home = () => {
                   placeholder="Buscar Repositorio"
                 />
               </div>
-              <div class="hero-bottom-table">
+              <div className="hero-bottom-table">
                 {/* <!-- Here goes the table with re repositories --> */}
               </div>
             </div>
