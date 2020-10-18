@@ -13,7 +13,7 @@ const Navbar = (props) => {
     secondLastName,
     ci,
     birthDate,
-  } = props.userInfoFromCookies;
+  } = props.cookieInfo;
   return (
     <>
       <header className="header">
