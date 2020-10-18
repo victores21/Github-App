@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "../../components/DataTable/DataTable";
+import { Link } from "react-router-dom";
 //Components
 import Navbar from "../../components/Navbar/Navbar";
 import { JumpCircleLoading } from "react-loadingg";
@@ -29,6 +30,7 @@ const Home = () => {
     public_repos: "",
     followers: "",
     following: "",
+    html_url: "",
   });
   const [userRepos, setUserRepos] = useState("");
   const [loading, setLoading] = useState(true);
@@ -56,6 +58,7 @@ const Home = () => {
           public_repos: data.public_repos,
           followers: data.followers,
           following: data.following,
+          html_url: data.html_url,
         });
         setLoading(false);
       } catch (error) {
@@ -152,7 +155,12 @@ const Home = () => {
                       ? "Not Found"
                       : userInfo.name}
                   </h1>
-                  <h2 id="hero-username">@{userInfo.username}</h2>
+                  <h2 id="hero-username">
+                    @
+                    <a href={userInfo.html_url} target="_blank">
+                      {userInfo.username}
+                    </a>
+                  </h2>
 
                   <div className="hero-personal-information">
                     {userInfo.company === null || undefined ? (
