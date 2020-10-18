@@ -2,6 +2,7 @@ import React from "react";
 
 //Components
 import Navbar from "../../components/Navbar/Navbar";
+
 //Styles
 import "./Home.css";
 
@@ -10,7 +11,7 @@ const Home = () => {
     <>
       <Navbar />
 
-      <div class="hero">
+      <div class="hero-home">
         <div class="hero-content-container">
           {/* <!-- Top content container --> */}
           <div class="hero-top-container">
