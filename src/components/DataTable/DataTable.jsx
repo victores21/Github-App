@@ -1,13 +1,16 @@
 import React from "react";
 import MaterialTable from "material-table";
 
+//Loading Component
+import { JumpCircleLoading } from "react-loadingg";
+
 const DataTable = (props) => {
   const userRepos = props.userRepos;
   const userRepoLoading = props.userRepoLoading;
   console.log("UserRepo from datatable", userRepos);
 
   if (userRepoLoading) {
-    return <p>Loading...</p>;
+    return <JumpCircleLoading />;
   } else {
     return (
       <>
