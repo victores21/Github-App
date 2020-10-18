@@ -34,7 +34,13 @@ const Home = () => {
   useEffect(() => {
     const getUserInfo = async (username) => {
       try {
-        const req = await fetch(`https://api.github.com/users/${username}`);
+        const req = await fetch(`https://api.github.com/users/${username}`, {
+          method: "GET",
+          headers: {
+            Authorization: `token eb9f311ef9640e1caabbabb061f19c8be818ef14`,
+          },
+        });
+
         const data = await req.json();
         console.log(await data);
         setUserInfo({
@@ -53,7 +59,11 @@ const Home = () => {
         console.log(error);
       }
     };
-    getUserInfo(cookieInfo.username);
+    if (cookieInfo.username.length > 0) {
+      getUserInfo(cookieInfo.username);
+    }
+
+    console.log("CookieInfo", cookieInfo.username);
   }, [cookieInfo.username]);
 
   useEffect(() => {
@@ -108,16 +118,30 @@ const Home = () => {
                   <h2 id="hero-username">@{userInfo.username}</h2>
 
                   <div className="hero-personal-information">
-                    <p className="personal-info work-place">
-                      <i className="fas fa-briefcase"></i> {userInfo.company}
-                    </p>
-                    <p className="personal-info place-living">
-                      <i className="fas fa-map-marker-alt"></i>{" "}
-                      {userInfo.location}
-                    </p>
-                    <p className="personal-info github-created">
-                      <i className="far fa-calendar"></i> {userInfo.created_at}
-                    </p>
+                    {userInfo.company === null ? (
+                      ""
+                    ) : (
+                      <p className="personal-info work-place">
+                        <i className="fas fa-briefcase"></i> {userInfo.company}
+                      </p>
+                    )}
+
+                    {userInfo.location === null ? (
+                      ""
+                    ) : (
+                      <p className="personal-info place-living">
+                        <i className="fas fa-map-marker-alt"></i>{" "}
+                        {userInfo.location}
+                      </p>
+                    )}
+                    {userInfo.created_at === null ? (
+                      ""
+                    ) : (
+                      <p className="personal-info github-created">
+                        <i className="far fa-calendar"></i>{" "}
+                        {userInfo.created_at}
+                      </p>
+                    )}
                   </div>
 
                   <div className="hero-information-cards">
