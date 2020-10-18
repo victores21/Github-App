@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+h1 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+h6 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+p {
+  font-family: "Roboto", sans-serif !important;
+}
+
+a {
+  font-family: "Roboto", sans-serif !important;
+}
+
+li {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.submit-button-container {
+  text-align: center;
+}
+
+.btn {
+  padding: 0.7rem 3rem;
+  cursor: pointer;
+}
+
+.btn-transparent {
+  background: none;
+}
+
+.btn-transparent:hover {
+  background: #4d4d4d;
+}
+
+.btn-white-outline {
+  border: 1px solid #fff;
+}
+
+.color-white {
+  color: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.hero-login {
+  min-height: 100vh;
+  height: 100%;
+  background: #1a1e22;
+  padding: 1rem;
+}
+
+.hero-login .hero-content {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-login .hero-image-container {
+  text-align: center;
+}
+
+.hero-login .hero-image-container .hero-image {
+  max-width: 90px;
+  max-height: 90px;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-login .hero-form {
+  margin-top: 1rem;
+}
+
+.hero-login #hero-form-title {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+}
+
+.hero-login .form-container {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.hero-login .form-container .form-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hero-login #fecha-nacimiento-label {
+  color: #fff;
+  font-size: 14px;
+}
+
+.hero-login .shared-container-input {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+}
+
+.hero-login .form-content-input {
+  margin: 0.3rem 0;
+  padding: 0.7rem;
+  width: 100%;
+}
+
+.hero-login .btn-entrar {
+  margin-top: 1rem;
+}
+
+@media (min-width: 425px) {
+  .hero-login {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .hero-content {
+    max-width: 375px;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-content-input {
+    padding: 1rem;
+  }
+}
