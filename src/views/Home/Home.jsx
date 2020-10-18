@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "../../components/DataTable/DataTable";
 import { Link } from "react-router-dom";
+
 //Components
 import Navbar from "../../components/Navbar/Navbar";
 import { JumpCircleLoading } from "react-loadingg";
 
+import { getUser } from "../../api.js";
 //Styles
 import "./Home.css";
 
@@ -37,34 +39,6 @@ const Home = () => {
   const [userRepoLoading, setUserRepoLoading] = useState(true);
 
   useEffect(() => {
-    const getUserInfo = async (username) => {
-      try {
-        const req = await fetch(`https://api.github.com/users/${username}`, {
-          method: "GET",
-          headers: {
-            Authorization: `token eb9f311ef9640e1caabbabb061f19c8be818ef14`,
-          },
-        });
-
-        const data = await req.json();
-        console.log(await data);
-        setUserInfo({
-          avatar_url: data.avatar_url,
-          name: data.name,
-          username: data.login,
-          company: data.company,
-          location: data.location,
-          created_at: data.created_at,
-          public_repos: data.public_repos,
-          followers: data.followers,
-          following: data.following,
-          html_url: data.html_url,
-        });
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     const getUserRepos = async (username) => {
       const req = await fetch(
         `https://api.github.com/users/${username}/repos`,
@@ -82,7 +56,22 @@ const Home = () => {
     };
 
     if (cookieInfo.username.length > 0) {
-      getUserInfo(cookieInfo.username);
+      getUser(cookieInfo.username).then((data) => {
+        setUserInfo({
+          avatar_url: data.avatar_url,
+          name: data.name,
+          username: data.login,
+          company: data.company,
+          location: data.location,
+          created_at: data.created_at,
+          public_repos: data.public_repos,
+          followers: data.followers,
+          following: data.following,
+          html_url: data.html_url,
+        });
+        setLoading(false);
+      });
+
       getUserRepos(cookieInfo.username);
     }
 
@@ -156,10 +145,7 @@ const Home = () => {
                       : userInfo.name}
                   </h1>
                   <h2 id="hero-username">
-                    @
-                    <a href={userInfo.html_url} target="_blank">
-                      {userInfo.username}
-                    </a>
+                    @<a href={userInfo.html_url}>{userInfo.username}</a>
                   </h2>
 
                   <div className="hero-personal-information">
