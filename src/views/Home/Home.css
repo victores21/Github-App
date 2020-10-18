@@ -6,25 +6,25 @@
   box-sizing: border-box;
 }
 
-.hero {
+.hero-home {
   min-height: 100vh;
   min-width: 100%;
   height: 100%;
   width: 100%;
 }
 
-.hero-top-container {
+.hero-home .hero-top-container {
   padding-top: 2rem;
   text-align: center;
   background: #1a1e22;
   padding-bottom: 3rem;
 }
 
-.hero-image-container {
+.hero-home .hero-image-container {
   text-align: center;
 }
 
-.hero-image-container .hero-image {
+.hero-home .hero-image-container .hero-image {
   max-height: 120px;
   max-width: 120px;
   height: 100%;
@@ -33,34 +33,34 @@
   border-radius: 100%;
 }
 
-.hero-user-content-container {
+.hero-home .hero-user-content-container {
   color: #fff;
 }
 
-#hero-name {
+.hero-home #hero-name {
   font-weight: 400;
   font-size: 30px;
   margin-top: 1rem;
 }
 
-#hero-username {
+.hero-home #hero-username {
   font-size: 20px;
   color: #0466d7;
   font-weight: 400;
   margin-top: 0.5rem;
 }
 
-.personal-info {
+.hero-home .personal-info {
   margin: 1rem 0;
   font-size: 14px;
   font-weight: 300;
 }
 
-.personal-info i {
+.hero-home .personal-info i {
   margin-right: 0.3rem;
 }
 
-.hero-information-cards {
+.hero-home .hero-information-cards {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -68,28 +68,34 @@
   margin-top: 1rem;
 }
 
-.hero-information-cards .hero-information-card {
+.hero-home .hero-information-cards .hero-information-card {
   font-size: 12px;
   margin: 0.4rem;
   padding: 0.8rem;
   background: #2f3336;
 }
 
-.hero-information-cards .hero-information-card .hero-information-card-number {
+.hero-home
+  .hero-information-cards
+  .hero-information-card
+  .hero-information-card-number {
   font-weight: 300;
   font-size: 12px;
 }
 
-.hero-information-cards .hero-information-card .hero-information-card-category {
+.hero-home
+  .hero-information-cards
+  .hero-information-card
+  .hero-information-card-category {
   font-weight: 300;
   color: #8caac1;
 }
 
-.hero-bottom-container {
+.hero-home .hero-bottom-container {
   width: 100%;
 }
 
-#hero-bottom-title {
+.hero-home #hero-bottom-title {
   font-weight: 400;
   font-size: 30px;
   margin-top: 1rem;
@@ -97,11 +103,11 @@
   margin-bottom: 1rem;
 }
 
-.hero-bottom-search-container {
+.hero-home .hero-bottom-search-container {
   margin: 1rem;
 }
 
-.hero-bottom-search-container #hero-bottom-search {
+.hero-home .hero-bottom-search-container #hero-bottom-search {
   width: 100%;
   padding: 0.6rem;
 }
