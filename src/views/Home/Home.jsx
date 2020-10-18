@@ -11,6 +11,7 @@ import { getUser, getUserRepos } from "../../api.js";
 import "./Home.css";
 
 const Home = () => {
+  //Information that is stored in Cookie
   const [cookieInfo, setCookieInfo] = useState({
     username: "",
     email: "",
@@ -21,7 +22,7 @@ const Home = () => {
     ci: "",
     birthDate: "",
   });
-
+  //User information that is brought by the request to the Github API
   const [userInfo, setUserInfo] = useState({
     avatar_url: "",
     name: "",
@@ -34,12 +35,18 @@ const Home = () => {
     following: "",
     html_url: "",
   });
+  //User repos that is brought by the request to the Github API
   const [userRepos, setUserRepos] = useState("");
+  //User Request Loading
   const [loading, setLoading] = useState(true);
+  //Repo request Loading
   const [userRepoLoading, setUserRepoLoading] = useState(true);
 
+  //Fetching the Repository and User Information
   useEffect(() => {
+    //the request is going to happen only if the cookie username exists
     if (cookieInfo.username.length > 0) {
+      //User Information Request
       getUser(cookieInfo.username).then((data) => {
         setUserInfo({
           avatar_url: data.avatar_url,
@@ -56,6 +63,7 @@ const Home = () => {
         setLoading(false);
       });
 
+      //User repo request
       getUserRepos(cookieInfo.username)
         .then((data) => {
           setUserRepos(data);
@@ -65,10 +73,9 @@ const Home = () => {
           console.log(error);
         });
     }
-
-    console.log("CookieInfo", cookieInfo.username);
   }, [cookieInfo.username]);
 
+  //Storing the Cookies in a State
   useEffect(() => {
     const getCookie = () => {
       let cookies = document.cookie
@@ -97,6 +104,7 @@ const Home = () => {
     getCookie();
   }, []);
 
+  //A function that checks if the information is Undefined or not (This is because when a user doesn't exists the API returns undefined)
   const isDataUndefined = (data) => {
     if (data === undefined) {
       return true;
@@ -104,7 +112,7 @@ const Home = () => {
       return false;
     }
   };
-  console.log(userInfo.name);
+
   if (loading) {
     return <JumpCircleLoading />;
   } else {
@@ -222,10 +230,6 @@ const Home = () => {
                       userRepoLoading={userRepoLoading}
                     />
                   )}
-                  {/* <DataTable
-                    userRepos={userRepos}
-                    userRepoLoading={userRepoLoading}
-                  /> */}
                 </div>
               </div>
             </div>
