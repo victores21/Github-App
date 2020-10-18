@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { JumpCircleLoading } from "react-loadingg";
 
+//API
 import { getUser, getUserRepos } from "../../api.js";
+
 //Styles
 import "./Home.css";
 
