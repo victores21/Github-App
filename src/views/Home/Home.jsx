@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DataTable from "../../components/DataTable/DataTable";
 //Components
 import Navbar from "../../components/Navbar/Navbar";
+import { JumpCircleLoading } from "react-loadingg";
 
 //Styles
 import "./Home.css";
@@ -122,7 +123,7 @@ const Home = () => {
   };
   console.log(userInfo.name);
   if (loading) {
-    return <p>Loading...</p>;
+    return <JumpCircleLoading />;
   } else {
     return (
       <>
