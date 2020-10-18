@@ -11,10 +11,12 @@ const DataTable = (props) => {
   } else {
     return (
       <>
-        <div style={{ maxWidth: "100%" }}>
+        <div
+          style={{ maxWidth: "100%", marginTop: "4rem", marginBottom: "4rem" }}
+        >
           <MaterialTable
             columns={[
-              { title: "Name", field: "name" },
+              { title: "Nombre", field: "name" },
               { title: "Descripción", field: "description" },
               { title: "Brach por defecto", field: "default_branch" },
               { title: "Lenguaje", field: "language" },
