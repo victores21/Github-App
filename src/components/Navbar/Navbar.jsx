@@ -29,7 +29,7 @@ const Navbar = (props) => {
             </li>
             <li>Usuario: @{username}</li>
             <li>Correo: {email}</li>
-            <li>Cedula: {ci}</li>
+            <li>Cédula: {ci}</li>
             <li>Fecha de nacimiento: {birthDate}</li>
           </ul>
         </div>

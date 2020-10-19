@@ -164,7 +164,7 @@ const Login = () => {
                 <input
                   className="form-content-input"
                   type="number"
-                  placeholder="Cedula"
+                  placeholder="Cédula"
                   name="ci"
                   ref={register({
                     required: true,
@@ -172,7 +172,7 @@ const Login = () => {
                     maxLength: 10,
                   })}
                 />
-                {errors.ci && errorMessage("Ingrese un cedula válida")}
+                {errors.ci && errorMessage("Ingrese un cédula válida")}
                 <label id="fecha-nacimiento-label">Fecha de Nacimiento</label>
                 <input
                   className="form-content-input"
