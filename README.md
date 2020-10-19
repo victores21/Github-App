@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## IMPORTANT
+
+To make this project run perfectly, when you clone it, you need to create a file called "settings.js" inside /src and add a Github Token.
+
 ## Available Scripts
 
 In the project directory, you can run:
